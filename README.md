@@ -1,42 +1,116 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
+# MercadoLibre Clone [Ecommerce]
 
-```bash
-# development
-$ npm run start
+This is a project that starts from a migration from NodeJS and Express, to Nest, adding functionalities in order to achieve a robust, scalable, and salable project.
 
-# watch mode
-$ npm run start:dev
+Main features: _Products, Brands, Categories, Subcategories, Comments, Users, Payment System (Sale-Purchase)._
 
-# production mode
-$ npm run start:prod
+## Starting 🚀
+
+These instructions will allow you to get a working copy of the project on your local machine for development and testing purposes.
+
+See **Deployment** to learn how to deploy the project.
+
+
+### Pre-requisites 📋
+
+_What things do you need to install the software and how to install them_
+
+```
+- Git v2.35.0.
+- NodeJS v16.13.2
+- NestJS v8.2.0
 ```
 
-## Test
+_You can download these technologies from the following links:_
 
-```bash
-# unit tests
-$ npm run test
+* [Git](https://git-scm.com/downloads)
+* [Node (LTS)](https://nodejs.org/es/download/)
+* [Nest](https://nestjs.com/)
 
-# e2e tests
-$ npm run test:e2e
+### Installation 🔧
+
+_A series of step-by-step examples that tell you what you need to run to get a development environment running_
+
 ```
+Install Git
+Install Node
+npm i -g @nestjs/cli
+```
+
+Now you are ready to open and run the project
+
+```
+git clone https://github.com/brahianpdev/nest-js-ecommerce-mongoose
+cd nest-js-ecommerce-mongoose
+npm install 
+npm run start:dev
+```
+
+## Deployment 📦
+
+_A brief guide on how to deploy on [Heroku](https://dashboard.heroku.com/apps/polar-everglades-71081/deploy/heroku-git)._
+
+
+```
+Download and install the Heroku CLI.
+
+heroku create
+heroku config:set NPM_CONFIG_PRODUCTION=false
+heroku config:set HOST=0.0.0.0
+heroku config:set NODE_ENV=production
+```
+
+In your package.json, add this line:
+```
+"scripts": {
+  "heroku-postbuild": "npm run build"
+}
+```
+
+Create a file called Procfile at the root of your project, and type the following:
+```
+web: npm run start
+```
+
+Push your github repository to heroku to deploy
+```
+git add Procfile
+git commit -a -m "Configuration to deploy to heroku"
+git push heroku master
+```
+
+And it’s live. The push-and-deploy process takes a few minutes, and then Heroku gives you the URL where you can see your app.
+
+## Endpoints 🔎
+
+You can see all the documentation of the endpoints [HERE](https://documenter.getpostman.com/view/18310822/UVeKojZU)
+
+__________________________________________
+
+## Built with 🛠️
+
+_Menciona las herramientas que utilizaste para crear tu proyecto_
+
+* [NestJS](http://www.dropwizard.io/1.0.2/docs/) - Backend framework used
+* [MongoDB](https://maven.apache.org/) - Used as my database
+* [Mongoose ODM](https://rometools.github.io/rome/) - Used to create the models of my database
+* [Postman](https://rometools.github.io/rome/) - Used to test and document my endpoints
+* [NPM](https://www.npmjs.com/) - Dependency manager
+
+### Expressions of Gratitude 🎁
+
+_This project is a test in order to expand my knowledge in a new framework through good SOLID practices._
+
+_A special thanks to [Franco](https://github.com/GreccoOliva-Franco/) and [Scorpion](https://github.com/ScorpionConMate), who are always offering their help._
+
+__________________________________________
+
+
+⚠️ If you run into any problems, please let me know [HERE](https://twitter.com/brahianpdev).

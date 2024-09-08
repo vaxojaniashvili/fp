@@ -1,21 +1,35 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { EcommerceModule } from './ecommerce-module/ecommerce.module';
+
+import { MulterModule } from '@nestjs/platform-express';
+import { memoryStorage } from 'multer';
+
+import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { UploadController } from './upload/upload.controller';
+import { configEnvs } from './config';
 
 @Module({
   imports: [
-    EcommerceModule,
-    GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
-      autoSchemaFile: 'schema.gql',
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true,
     }),
-    MongooseModule.forRoot('mongodb://localhost/ecommerce'),
+    MongooseModule.forRoot(configEnvs.mongoURL, {
+      useNewUrlParser: true,
+    }),
+
+    MulterModule.register({
+      dest: './files',
+      storage: memoryStorage(),
+    }),
+    AuthModule,
+    UserModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, UploadController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
